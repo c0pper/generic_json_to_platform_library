@@ -1,13 +1,5 @@
-from pathlib import Path
 import csv
 import json
-from json_builder import main
-
-
-
-CSV_PATH = Path(__file__).parent / "NLP with Disaster Tweets.csv"
-ROOT_PATH = "C:/Users/smarotta/Desktop/silvanus4.4 ann"
-jsonFilePath = Path(__file__).parent / "NLP with Disaster Tweets.json"
 
 
 def make_json(csvFilePath, jsonFilePath, primary_key: str):
@@ -31,8 +23,3 @@ def make_json(csvFilePath, jsonFilePath, primary_key: str):
     with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
         jsonf.write(json.dumps(data, indent=4))
 
-
-if __name__ == "__main__":
-    # Call the make_json function
-    make_json(CSV_PATH, jsonFilePath, "id")
-    main(jsonFilePath, text_key="text")
